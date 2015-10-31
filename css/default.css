@@ -4,11 +4,19 @@ body {
 .question {
 	width: 100%;
 }
-.question tr:nth-child(1) td:nth-child(1) {
+.question-title {
+	font-size: 1.2em;
 	font-weight: bold;
 }
-.question td:nth-child(2) {
+.question-icons {
 	text-align: right;
+}
+.question-time {
+	font-style: italic;
+	font-size: 0.8em;
+}
+.question td {
+	padding-bottom: 0.5em;
 }
 .star {
 	margin: 5px;
@@ -26,4 +34,90 @@ body {
 .panel-heading, .panel-footer {
 	background-color: black !important;
 	color: white !important;
+}
+.img-thumbnail {
+	width: 140px !important;
+	height: 140px !important;
+}
+.arrow-box {
+	position: relative;
+	background: #ffffff;
+	border: 1px solid #ddd;
+	margin-left: 30px;
+}
+.arrow-box:after, .arrow-box:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow-box:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-right-color: #ffffff;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow-box:before {
+	border-color: rgba(221, 221, 221, 0);
+	border-right-color: #ddd;
+	border-width: 31px;
+	margin-top: -31px;
+}
+.message {
+	width: 100%;
+}
+.message table {
+	width: 100%;
+}
+.message-avatar {
+	width: 100px;
+	vertical-align: top;
+}
+.message-avatar img {
+	width: 100px !important;
+	height: 100px !important;
+	margin: 10px;
+}
+.message-best {
+	font-weight: bold;
+}
+.message-icon {
+	text-align: right;
+	font-size: 1.5em;
+}
+.message-username {
+	font-size: 1.2em;
+}
+.message-time {
+	font-style: italic;
+	font-size: 0.8em;
+}
+.message-success {
+	background-color: #dff0d8;
+}
+.message-success:after {
+	border-right-color: #dff0d8;
+}
+.message td {
+	padding-bottom: 0.5em;
+}
+.message-success .glyphicon-star {
+	color: gold;
+}
+.message-success .message tr:nth-child(1) td:nth-child(1) p {
+	display: inline-block !important;
+}
+.list-group-item .close {
+	float: right !important;
+}
+.like {
+	color: green;
+}
+.dislike {
+	color: red;
 }
