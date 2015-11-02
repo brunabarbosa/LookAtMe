@@ -6,6 +6,11 @@
 		<title>Look At Me</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/default.css">
+		<script>
+		if (window.localStorage.getItem("user")) {
+			window.location.href = "main.html";
+		}
+		</script>
 	</head>
 	<body>
 		<div class="container">
@@ -17,6 +22,7 @@
 			</div>
 			<div class="panel panel-default col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" id="login-panel">
 				<div class="panel-body">
+					<p class="alert alert-danger" style="display: none;"></p>
 					<form method="post">
 						<div class="form-group">
 							<input type="email" class="form-control" name="email" placeholder="E-mail" required autofocus />
@@ -24,7 +30,7 @@
 						<div class="form-group">
 							<input type="password" class="form-control" name="password" placeholder="Senha" required />
 						</div>
-						<button type="submit" class="btn btn-default form-control">Entrar</button> 
+						<button type="submit" id="login" class="btn btn-default form-control" data-loading-text="Entrando..." autocomplete="off">Entrar</button> 
 						<hr>
 						<center>Não possui uma conta? <button class="btn btn-warning" id="create">Criar</button></center>
 					</form>
@@ -32,9 +38,10 @@
 			</div>
 			<div class="panel panel-default col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" id="register-panel" style="display: none;">
 				<div class="panel-body">
+					<p class="alert alert-danger" style="display: none;"></p>
 					<form method="post">
 						<div class="form-group">
-							<input type="text" class="form-control" name="name" placeholder="Nome" maxlength="50" required autofocus />
+							<input type="text" class="form-control" name="name" placeholder="Nome" minlength="3" maxlength="30" required autofocus />
 						</div>
 						<div class="form-group">
 							<input type="email" class="form-control" name="email" placeholder="E-mail" maxlength="100" required />
@@ -46,7 +53,7 @@
 							<input type="password" class="form-control" name="repeat-password" placeholder="Repetir Senha" minlength="6" maxlength="30" required />
 						</div>
 						<center>
-							<button type="submit" class="btn btn-warning">Criar</button> 
+							<button type="submit" id="register" class="btn btn-warning" data-loading-text="Registrando...">Registrar</button> 
 							<button class="btn btn-default" id="back">Voltar</button>
 						</center>
 					</form>
@@ -55,12 +62,18 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+		<script src="js/lookatme.js"></script>
 		<script>
+			function login(jsonObj) {
+				window.localStorage.setItem("user", JSON.stringify(jsonObj));
+				window.location.href = 'main.html';
+			}
 			$(function() {
 				$("#create").click(function(e) {
 					e.preventDefault();
 					$("#login-panel").fadeOut(function() {
 						$("#login-panel form")[0].reset();
+						$("#login-panel .alert").hide();
 						$("#register-panel").fadeIn();
 					});
 				});
@@ -68,11 +81,57 @@
 					e.preventDefault();
 					$("#register-panel").fadeOut(function() {
 						$("#register-panel form")[0].reset();
+						$("#register-panel .alert").hide();
 						$("#login-panel").fadeIn();
 					});
 				});
 				$("#login-panel form").submit(function(e) {
 					e.preventDefault();
+					$("#login").button("loading");
+					$.ajax({
+						type: 'post',
+						url: SERVER_URL + "user/login.php",
+						data: $(this).serialize(),
+						success: function(jsonObj) {
+							if (!jsonObj.success) {
+								$("#login-panel .alert-danger").show();
+								$("#login-panel .alert-danger").html(jsonObj.message);
+								$("#login").button("reset");
+							} else {
+								jsonObj["email"] = $("#login-panel form input[name='email']").val();
+								login(jsonObj);
+							}
+						},
+						error: function(msg) {
+							$("#login-panel .alert-danger").show();
+							$("#login-panel .alert-danger").html(msg);
+							$("#login").button("reset");
+						}
+					});
+				});
+				$("#register-panel form").submit(function(e) {
+					e.preventDefault();
+					$("#register").button("loading");
+					$.ajax({
+						type: 'post',
+						url: SERVER_URL + "user/register.php",
+						data: $(this).serialize(),
+						success: function(jsonObj) {
+							if (!jsonObj.success) {
+								$("#register-panel .alert-danger").show();
+								$("#register-panel .alert-danger").html(jsonObj.message);
+								$("#register").button("reset");
+							} else {
+								jsonObj["email"] = $("#register-panel form input[name='email']").val();
+								login(jsonObj);
+							}
+						},
+						error: function(msg) {
+							$("#register-panel .alert-danger").show();
+							$("#register-panel .alert-danger").html(msg);
+							$("#register").button("reset");
+						}
+					});
 				});
 			});
 		</script>
