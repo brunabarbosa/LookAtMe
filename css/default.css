@@ -137,3 +137,16 @@ a:hover, a:active {
 .dislike {
 	color: red;
 }
+.loading {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#question-form-simplified {
+	margin-bottom: 0 !important;
+}
+#question-form-simplified {
+	padding-top: 10px;
+}

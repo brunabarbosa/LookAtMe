@@ -1,3 +1,4 @@
+// Prevent logged users from logging in again 
 if (window.localStorage.getItem("user")) {
 	window.location.href = "main.html";
 }
@@ -6,22 +7,31 @@ function login(jsonObj) {
 	window.location.href = 'main.html';
 }
 $(function() {
+	// Go to sign up page 
 	$("#create").click(function(e) {
 		e.preventDefault();
 		$("#login-panel").fadeOut(function() {
 			$("#login-panel form")[0].reset();
 			$("#login-panel .alert").hide();
 			$("#register-panel").fadeIn();
+			setTimeout(function() {
+				$("#register-panel input[name='name']").focus();
+			}, 500);
 		});
 	});
+	// Go back to log in page 
 	$("#back").click(function(e) {
 		e.preventDefault();
 		$("#register-panel").fadeOut(function() {
 			$("#register-panel form")[0].reset();
 			$("#register-panel .alert").hide();
 			$("#login-panel").fadeIn();
+			setTimeout(function() {
+				$("#login-panel input[name='email']").focus();
+			}, 500);
 		});
 	});
+	// User submit login form 
 	$("#login-panel form").submit(function(e) {
 		e.preventDefault();
 		$("#login").button("loading");
@@ -29,6 +39,7 @@ $(function() {
 			type: 'post',
 			url: SERVER_URL + "user/login.php",
 			data: $(this).serialize(),
+			cache: false,
 			success: function(jsonObj) {
 				if (!jsonObj.success) {
 					$("#login-panel .alert-danger").show();
@@ -46,6 +57,7 @@ $(function() {
 			}
 		});
 	});
+	// User submit sing up form 
 	$("#register-panel form").submit(function(e) {
 		e.preventDefault();
 		$("#register").button("loading");
@@ -53,6 +65,7 @@ $(function() {
 			type: 'post',
 			url: SERVER_URL + "user/register.php",
 			data: $(this).serialize(),
+			cache: false,
 			success: function(jsonObj) {
 				if (!jsonObj.success) {
 					$("#register-panel .alert-danger").show();
