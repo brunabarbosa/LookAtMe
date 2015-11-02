@@ -1,6 +1,37 @@
 body {
 	background-color: #eee;
 }
+a, a:link, a:visited {
+	color: #FF9933 !important;
+}
+a:hover, a:active {
+	color: #D46A00 !important;
+}
+.page-header img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.navbar-brand img {
+	height: 50px;
+	margin-top: -15px;
+}
+.navbar .img-circle {
+	width: 30px;
+	height: 30px;
+	margin: 10px 0 10px 5px;
+}
+.navbar, .panel-heading, .panel-footer, .navbar-text {
+	background-color: black !important;
+	color: #F6F6F6 !important;
+}
+.divider {
+	margin-top: 70px;
+}
+.img-thumbnail {
+	width: 140px !important;
+	height: 140px !important;
+}
 .question {
 	width: 100%;
 }
@@ -23,21 +54,6 @@ body {
 }
 .star-active {
 	color: gold;
-}
-.navbar {
-	background-image: url('../img/logo_LatM.png'); 
-	background-size: auto 100%; 
-	background-repeat: no-repeat; 
-	background-color: black;
-	border-radius: 5px;
-}
-.panel-heading, .panel-footer {
-	background-color: black !important;
-	color: white !important;
-}
-.img-thumbnail {
-	width: 140px !important;
-	height: 140px !important;
 }
 .arrow-box {
 	position: relative;

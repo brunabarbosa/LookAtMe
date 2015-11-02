@@ -6,21 +6,32 @@
 		<title>Look At Me</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/default.css">
-		<script>
-		if (!window.localStorage.getItem("user")) {
-			window.location.href = "index.html";
-		}
-		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+		<script src="js/lookatme.js"></script>
 	</head>
 	<body>
 		<div class="container">
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
 				<div class="container-fluid">
-					<div class="navbar-header">
-						<a class="navbar-brand" href="#"></a>
+					<div class="navbar-header navbar-left">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded=false></button>
+						<a class="navbar-brand" href="main.html"><img alt="Look At Me" src="img/logo-xs.png" /></a>
+					</div>
+					<div id="navbar-collapse" class="collapse navbar-collapse text-center">
+						<ul class="nav navbar-nav navbar-right">
+							<li><img id="avatar" class="img-circle" src="img/default-avatar.jpg" /></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="name"></span> <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#" id="logout">Sair</a></li>
+								</ul> 
+							</li>
+						</ul>
 					</div>
 				</div>
 			</nav>
+			<div class="divider"></div>
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<ul class="list-group">
@@ -206,9 +217,6 @@
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-		<script src="js/lookatme.js"></script>
 		<script>
 			$(function() {
 				
