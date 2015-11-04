@@ -34,150 +34,7 @@
 			<div class="divider"></div>
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<ul class="list-group">
-						<li class="list-group-item">
-							<table class="message">
-								<tr>
-									<td class="message-avatar">
-										<img src="http://www.globalbiketours.com/images/default_user.png" class="img-circle" />
-									</td>
-									<td>
-										<table>
-											<tr>
-												<td class="message-username">
-													<a href="#">Maria</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Gente, por favor, me ajuda a escolher... Qual o melhor?</td>
-											</tr>
-											<tr>
-												<td>
-													<div id="images-container">
-														<img src="http://images.tcdn.com.br/img/img_prod/345307/camiseta_chaves_roupa_do_nhonho_226_1_20131216093625.jpg" class="img-thumbnail" />
-														<img src="http://images.tcdn.com.br/img/img_prod/345307/camiseta_chaves_icone_seu_barriga_235_1_20131216145633.jpg" class="img-thumbnail" />
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td class="message-time">Postado em 30/10/2015 às 23:30</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</li>
-						<li class="list-group-item arrow-box message-success">
-							<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
-							<table class="message">
-								<tr>
-									<td class="message-avatar">
-										<img src="http://www.globalbiketours.com/images/default_user.png" class="img-circle" />
-									</td>
-									<td>
-										<table>
-											<tr>
-												<td class="message-best">
-													<p class="hide">Avaliado como melhor resposta</p>
-												</td>
-												<td class="message-icon" rowspan="4">
-													<span class="glyphicon glyphicon-thumbs-up"></span>
-													<span class="glyphicon glyphicon-thumbs-down"></span>
-												</td>
-												<td class="message-icon" rowspan="4">
-													<span class="glyphicon glyphicon-star"></span>
-												</td>
-											</tr>
-											<tr>
-												<td class="message-username">
-													<a href="#">Maria</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Gente, por favor, me ajuda a escolher... Qual o melhor?</td>
-											</tr>
-											<tr>
-												<td class="message-time">Postado em 30/10/2015 às 23:30</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</li>
-						<li class="list-group-item arrow-box">
-							<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
-							<table class="message">
-								<tr>
-									<td class="message-avatar">
-										<img src="http://www.globalbiketours.com/images/default_user.png" class="img-circle" />
-									</td>
-									<td>
-										<table>
-											<tr>
-												<td class="message-best">
-													<p class="hide">Avaliado como melhor resposta</p>
-												</td>
-												<td class="message-icon" rowspan="4">
-													<span class="glyphicon glyphicon-thumbs-up like"></span>
-													<span class="glyphicon glyphicon-thumbs-down"></span>
-												</td>
-												<td class="message-icon" rowspan="4">
-													<span class="glyphicon glyphicon-star"></span>
-												</td>
-											</tr>
-											<tr>
-												<td class="message-username">
-													<a href="#">Maria</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Gente, por favor, me ajuda a escolher... Qual o melhor?</td>
-											</tr>
-											<tr>
-												<td class="message-time">Postado em 30/10/2015 às 23:30</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</li>
-						<li class="list-group-item arrow-box">
-							<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
-							<table class="message">
-								<tr>
-									<td class="message-avatar">
-										<img src="http://www.globalbiketours.com/images/default_user.png" class="img-circle" />
-									</td>
-									<td>
-										<table>
-											<tr>
-												<td class="message-best">
-													<p class="hide">Avaliado como melhor resposta</p>
-												</td>
-												<td class="message-icon" rowspan="4">
-													<span class="glyphicon glyphicon-thumbs-up"></span>
-													<span class="glyphicon glyphicon-thumbs-down dislike"></span>
-												</td>
-												<td class="message-icon" rowspan="4">
-													<span class="glyphicon glyphicon-star"></span>
-												</td>
-											</tr>
-											<tr>
-												<td class="message-username">
-													<a href="#">Maria</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Gente, por favor, me ajuda a escolher... Qual o melhor?</td>
-											</tr>
-											<tr>
-												<td class="message-time">Postado em 30/10/2015 às 23:30</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</li>
+					<ul class="list-group" id="comments">
 					</ul>
 				</div>
 				<div class="panel-footer">
@@ -188,38 +45,208 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal fade" id="question-modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Nova pergunta</h4>
-					</div>
-					<form id="question-form" type="post" enctype="multipart/form-data">
-						<div class="modal-body">
-							<div class="form-group">
-								<input type="text" class="form-control" name="title" placeholder="Título da pergunta" autofocus required />
-							</div>
-							<div class="form-group">
-								<textarea class="form-control" name="description" placeholder="Descrição" required></textarea>
-							</div>
-							<div class="form-group">
-								<input type="file" name="images" multiple accept="image/x-png, image/gif, image/jpeg">
-							</div>
-							<div id="images-container">
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-							<input type="submit" class="btn btn-warning" value="Enviar" />
-						</div>
-					</form>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
+		<li class="list-group-item" id="question-template" style="display: none;">
+			<table class="message">
+				<tr>
+					<td class="message-avatar">
+						<img src="img/default-avatar.jpg" class="img-circle" />
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td class="message-username">
+									<a href="#"></a>
+								</td>
+							</tr>
+							<tr>
+								<td class="message-description"></td>
+							</tr>
+							<tr>
+								<td>
+									<div class="images-container">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="message-time"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</li>
+		<li class="list-group-item arrow-box" id="comment-template" style="display: none;">
+			<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
+			<table class="message">
+				<tr>
+					<td class="message-avatar">
+						<img src="img/default-avatar.jpg" class="img-circle" />
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td class="message-best">
+									<p class="hide">Avaliado como melhor resposta</p>
+								</td>
+								<td class="message-icon" rowspan="4">
+									<span class="glyphicon glyphicon-thumbs-up" role="button" aria-label="Curtir"></span>
+									<span class="glyphicon glyphicon-thumbs-down" role="button" aria-label="Descurtir"></span>
+								</td>
+								<td class="message-icon" rowspan="4">
+									<span class="glyphicon glyphicon-star" role="button" aria-label="Favoritar"></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="message-username">
+									<a href="#"></a>
+								</td>
+							</tr>
+							<tr>
+								<td class="message-description"></td>
+							</tr>
+							<tr>
+								<td class="message-time"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</li>
 		<script>
+			var hasFavorite = false;
+			var isEvaluated = [];
+			function update_list(id) {
+				$("#comments").append('<li class="list-group-item" id="loading"><img class="loading" src="img/loading.gif" /></li>');
+				$.ajax({
+					type: 'get',
+					url: SERVER_URL + "question/get.php?id=" + id,
+					cache: false,
+					success: function(jsonObj) {
+						$("#loading").fadeOut(function() {
+							if (jsonObj.success) {
+								$("#comments").html("");
+								var $question = $("#question-template").clone();
+								$question.attr("id", "");
+								if (jsonObj.user_photo) {
+									$question.find(".message-avatar img").attr("src", SERVER_URL + user.photo);
+								}
+								$question.find(".message-username a").html(jsonObj.user_name);
+								$question.find(".message-description").html("<b>" + jsonObj.title + "</b><br>" + jsonObj.description);
+								$question.find(".message-time").html("Postado às " + jsonObj.creation_date);
+								for (var i = 0; i < jsonObj.photos.length; i++) {
+									$question.find(".images-container").append('<img src="' + SERVER_URL + jsonObj.photos[i]["link"] + '" class="img-thumbnail" />');
+								}
+								$("#comments").append($question);
+								$question.fadeIn();
+								// Best comment first 
+								var comments = [];
+								for (var i = 0; i < jsonObj.comments.length; i++) {
+									if (jsonObj.comments[i].id == jsonObj.favorite_comment) {
+										hasFavorite = true;
+										comments.push(jsonObj.comments[i]);
+									}
+								}
+								for (var i = 0; i < jsonObj.comments.length; i++) {
+									if (jsonObj.comments[i].id != jsonObj.favorite_comment) {
+										comments.push(jsonObj.comments[i]);
+									}
+								}
+								for (var i = 0; i < comments.length; i++) {
+									var commentObj = comments[i];
+									var $comment = $("#comment-template").clone();
+									$comment.attr("id", "");
+									if (commentObj.user_photo) {
+										$comment.find(".message-avatar img").attr("src", SERVER_URL + commentObj.user_photo);
+									}
+									$comment.find(".message-username a").html(commentObj.user_name);
+									$comment.find(".message-description").html(commentObj.comment);
+									$comment.find(".message-time").html("Postado às " + commentObj.creation_date);
+									if (commentObj.id == jsonObj.favorite_comment) {
+										$comment.addClass("message-success");
+									}
+									if (commentObj.like_status == "liked") {
+										$comment.find(".message-icon .glyphicon-thumbs-up").addClass("like");
+										isEvaluated[commentObj.id] = true;
+									} else if (commentObj.like_status == "disliked") { 
+										$comment.find(".message-icon .glyphicon-thumbs-down").addClass("dislike");
+										isEvaluated[commentObj.id] = true;
+									} else {
+										isEvaluated[commentObj.id] = false;
+									}
+									$comment.find(".message-icon .glyphicon-thumbs-up").data("question-id", jsonObj.id);
+									$comment.find(".message-icon .glyphicon-thumbs-up").data("comment-id", commentObj.id);
+									$comment.find(".message-icon .glyphicon-thumbs-up").data("is-authorized", user.email == jsonObj.user_email);
+									$comment.find(".message-icon .glyphicon-thumbs-down").data("question-id", jsonObj.id);
+									$comment.find(".message-icon .glyphicon-thumbs-down").data("comment-id", commentObj.id);
+									$comment.find(".message-icon .glyphicon-thumbs-down").data("is-authorized", user.email == jsonObj.user_email);
+									$comment.find(".message-icon .glyphicon-star").data("question-id", jsonObj.id);
+									$comment.find(".message-icon .glyphicon-star").data("comment-id", commentObj.id);
+									$comment.find(".message-icon .glyphicon-star").data("is-authorized", user.email == jsonObj.user_email);
+									if (user.email != jsonObj.user_email && user.email != commentObj.user_email) {
+										$comment.find(".close").hide();
+									}
+									$("#comments").append($comment);
+									$comment.fadeIn();
+								}
+							} else {
+								$("#comments").append("<li class='list-group-item alert alert-danger'>" + jsonObj.message + "</li>");
+							}
+						}); 
+					}, 
+					error: function(msg) {
+						$("#loading").fadeOut(function() {
+							$("#comments").html("");
+							$("#comments").append("<li class='list-group-item alert alert-danger'>Ops, um erro ocorreu. Tente novamente.</li>");
+						});
+					}
+				});
+			}
 			$(function() {
-				
+				var params = getSearchParameters();
+				var id = params["id"];
+				update_list(id);
+				// Favorite comment 
+				$(document).on("click", ".message-icon .glyphicon-star", function() {
+					if (!hasFavorite && $(this).data("is-authorized")) {
+						var questionId = $(this).data("question-id");
+						var commentId = $(this).data("comment-id");
+						var data = "question_id=" + questionId + "&comment_id=" + commentId + "&email=" + user.email + "&auth_key=" + user.auth_key;
+						var $self = $(this);
+						$.ajax({
+							type: 'post',
+							url: SERVER_URL + "comment/favorite.php",
+							cache: false,
+							data: data,
+							success: function(jsonObj) {
+								if (jsonObj.success) {
+									$self.closest("li").addClass("message-success");
+									hasFavorite = true;
+								}
+							}
+						});
+					}
+				});
+				// Like comment
+				$(document).on("click", ".message-icon .glyphicon-thumbs-up", function() {
+					var questionId = $(this).data("question-id");
+					var commentId = $(this).data("comment-id");
+					if (!isEvaluated[commentId] && $(this).data("is-authorized")) {
+						var data = "question_id=" + questionId + "&comment_id=" + commentId + "&email=" + user.email + "&auth_key=" + user.auth_key + "&status=liked";
+						var $self = $(this);
+						$.ajax({
+							type: 'post',
+							url: SERVER_URL + "comment/like.php",
+							cache: false,
+							data: data,
+							success: function(jsonObj) {
+								if (jsonObj.success) {
+									$self.addClass("like");
+									isEvaluated[commentId] = true;
+								}
+							}
+						});
+					}
+				});
 			});
 		</script>
 	</body>

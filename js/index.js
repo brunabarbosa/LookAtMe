@@ -50,9 +50,9 @@ $(function() {
 					login(jsonObj);
 				}
 			},
-			error: function(msg) {
+			error: function() {
 				$("#login-panel .alert-danger").show();
-				$("#login-panel .alert-danger").html(msg);
+				$("#login-panel .alert-danger").html("Ops, um erro ocorreu. Tente novamente.");
 				$("#login").button("reset");
 			}
 		});
@@ -76,9 +76,9 @@ $(function() {
 					login(jsonObj);
 				}
 			},
-			error: function(msg) {
+			error: function() {
 				$("#register-panel .alert-danger").show();
-				$("#register-panel .alert-danger").html(msg);
+				$("#register-panel .alert-danger").html("Ops, um erro ocorreu. Tente novamente.");
 				$("#register").button("reset");
 			}
 		});
