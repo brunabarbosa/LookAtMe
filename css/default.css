@@ -122,7 +122,7 @@ a:hover, a:active {
 .message td {
 	padding-bottom: 0.5em;
 }
-.message-success .glyphicon-star, .glyphicon-star:hover {
+.message-success .glyphicon-star, .glyphicon-star-enabled:hover {
 	color: gold;
 }
 .message-success .message tr:nth-child(1) td:nth-child(1) p {
@@ -131,10 +131,10 @@ a:hover, a:active {
 .list-group-item .close {
 	float: right !important;
 }
-.glyphicon-thumbs-up:hover, .like {
+.glyphicon-thumbs-up-enabled:hover, .like {
 	color: green;
 }
-.glyphicon-thumbs-down:hover, .dislike {
+.glyphicon-thumbs-down-enabled:hover, .dislike {
 	color: red;
 }
 .loading {
