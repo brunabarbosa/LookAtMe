@@ -28,5 +28,32 @@ if (!content) {
 			window.localStorage.clear();
 			window.location.href = "index.html";
 		});
+		$("#rating-form").submit(function(e) {
+			e.preventDefault();
+			var data = new FormData();
+			data.append("rating", $(this).find("input[type='number']").val());
+			data.append("comment", $(this).find("textarea").val());
+			data.append("email", user.email);
+			$.ajax({
+				type: 'post',
+				url: SERVER_URL + "rate.php",
+				data: data,
+				cache: false,
+				processData: false,
+				contentType: false,
+				success: function(jsonObj) {
+					if (jsonObj.success) {
+						alert("Sua avaliação foi salva com sucesso. Muito obrigado!");
+						$("#rating-modal").modal("hide");
+					} else {
+						alert(jsonObj.message);
+					}
+				},
+				error: function(msg) {
+					console.log(msg);
+					alert("Ocorreu um erro durante sua avaliação. Tente novamente.");
+				}
+			});
+		});
 	});
 }

@@ -5,9 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Look At Me</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/star-rating.min.css">
 		<link rel="stylesheet" href="css/default.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+		<script src="js/star-rating.min.js"></script>
 		<script src="js/lookatme.js"></script>
 	</head>
 	<body>
@@ -19,6 +21,9 @@
 						<a class="navbar-brand" href="main.html"><img alt="Look At Me" src="img/logo-xs.png" /></a>
 					</div>
 					<div id="navbar-collapse" class="collapse navbar-collapse text-center">
+						<ul class="nav navbar-nav">
+							<li><button class="btn btn-success navbar-btn" data-toggle="modal" data-target="#rating-modal"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;Avaliar</button></li>
+						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><img id="avatar" class="img-circle" src="img/default-avatar.jpg" /></li>
 							<li class="dropdown">
@@ -45,6 +50,7 @@
 				</ul>
 			</div><!-- .panel -->
 		</div><!-- .container -->
+		<!-- New question modal -->
 		<div class="modal fade" id="question-modal">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -71,6 +77,33 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
 							<input type="submit" id="send" class="btn btn-warning" value="Enviar" data-loading-text="Enviando..." autocomplete="off" />
 						</div>
+					</form>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<!-- Rate modal -->
+		<div class="modal fade" id="rating-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Avalie nosso aplicativo</h4>
+					</div>
+					<form id="rating-form" type="post" enctype="multipart/form-data">	
+						<form id="rating-form">
+							<div class="modal-body">
+								<p>Sua opinião é muito importante para nós. Informe uma nota e um comentário (opcional) em relação ao nosso aplicativo e nos ajude a melhorar.</p>
+								<hr>
+								<center><input type="number" name="rating" class="rating" min="0" max="5" step="0.5" data-size="md" data-symbol="&#xe005;" data-show-caption="false" data-show-clear="false"></center>
+								<div class="form-group">
+									<textarea name="comment" class="form-control" placeholder="Comentário"></textarea>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+								<input type="submit" id="rate" class="btn btn-warning" value="Enviar" data-loading-text="Enviando..." autocomplete="off" />
+							</div>
+						</form>
 					</form>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
